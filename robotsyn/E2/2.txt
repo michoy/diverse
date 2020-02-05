@@ -1,0 +1,46 @@
+
+a)
+Intrinsic:
+- Focal length
+- coordinates of principle point
+- Lens properties (distorion etc.)
+- Camera skew
+
+Extrinsic:
+- Camera pose 
+
+
+b) 
+Because it's easy and cheap
+
+
+c)
+screen-pro:
+it's simple and (slightly) better for the evironment. 
+
+screen-con:
+It's more challenging for the camera to adjust the exposure and find the right focus. 
+You need an availible screen, which can be a hassel to move.
+Low insight angle can be a problem. 
+
+print-pro: 
+Very simple and easy for the camera to adjust to.
+
+print-con:
+you need a printer 
+
+
+d)
+Parameters: cx, cy, fx, fy, 6 DOF extrinsic = 10
+Equations: 2
+
+At least five corresponences.
+
+
+e)
+Zoom(focal length) and camera to object distance.
+
+
+f)
+Many similar photographs in calibration lead to a low repojection error, 
+but a bad calibration.  

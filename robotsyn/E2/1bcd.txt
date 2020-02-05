@@ -1,0 +1,12 @@
+
+b)
+Change the intrinsic parameters for one of the mappings.
+
+c)
+The mapping is undistorted -> (x,y) -> source
+The orientation can be change by applying a rotation transformation on the middel step. 
+
+d)
+Fordi man ser fra forskjellige perspektiv, hvor noen ting som er synlige i det ene, ikke er det i et annet. 
+Forsvinningspunktet vil være et annet sted.  
+
