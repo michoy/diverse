@@ -2,30 +2,31 @@ import numpy as np
 import matplotlib.pyplot as plt
 from common import *
 
-all_markers = np.loadtxt('../data/markers.txt')
+all_markers = np.loadtxt('data/markers.txt')
 m = 7 # Number of markers (not all are detected in each frame)
 
 # Initial estimate
-yaw   = 11.6*np.pi/180;
-pitch = 28.9*np.pi/180;
-roll  = -0.6*np.pi/180;
+yaw   = 0
+pitch = 0
+roll  = 0
 
 # Task 1
-method = gauss_newton
-last_image = 86
+# method = gauss_newton
+# last_image = 86
 
 # Task 2
-# method = levenberg_marquardt
-# last_image = 360
+method = levenberg_marquardt
+last_image = 360
 
 trajectory = []
 for image_number in range(last_image + 1):
+    print('Image number: ', image_number)
     markers = all_markers[image_number,:]
     markers = np.reshape(markers, [m, 3])
     weights = markers[:,0] # weight = 1 if marker was detected or 0 otherwise
     uv = markers[:, 1:3]
     if image_number == 0:
-        r = residuals(uv, weights, yaw, pitch, roll)
+        r = calculate_residuals(uv, weights, yaw, pitch, roll)
         print('Residuals on first image are:', r)
     yaw, pitch, roll = method(uv, weights, yaw, pitch, roll)
     trajectory.append([yaw, pitch, roll])
@@ -34,7 +35,7 @@ trajectory = np.array(trajectory)
 #
 # Generate output plot comparing encoder values against vision estimate
 #
-logs       = np.loadtxt('../data/logs.txt')
+logs       = np.loadtxt('data/logs.txt')
 log_time   = logs[:,0]
 log_yaw    = logs[:,1]
 log_pitch  = logs[:,2]
