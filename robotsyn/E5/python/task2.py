@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 from common1 import *
 from common2 import *
 
-edge_threshold = 0 # todo: choose an appropriate value
-blur_sigma     = 0 # todo: choose an appropriate value
+edge_threshold = 0 # TODO: choose an appropriate value
+blur_sigma     = 0 # TODO: choose an appropriate value
 filename       = '../data/image1_und.jpg'
 
 I_rgb      = plt.imread(filename)

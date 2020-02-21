@@ -7,10 +7,15 @@ def central_difference(I):
     a central difference filter, and returns the resulting
     gradient images (Iu, Iv) and the gradient magnitude Im.
     """
+    # TODO: implement central_difference
 
     Iu = np.zeros_like(I) # Placeholder
     Iv = np.zeros_like(I) # Placeholder
     Im = np.zeros_like(I) # Placeholder
+
+    kernel = [0.5, 1, -0.5]
+    
+
     return Iu, Iv, Im
 
 # Task 1b
@@ -19,6 +24,7 @@ def blur(I, sigma):
     Applies a 2-D Gaussian blur with standard deviation sigma to
     a grayscale image I.
     """
+    # TODO: blur
 
     # Hint: The size of the kernel, w, should depend on sigma, e.g.
     # w=2*np.ceil(3*sigma) + 1. Also, ensure that the blurred image
