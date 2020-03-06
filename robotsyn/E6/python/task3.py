@@ -27,9 +27,8 @@ Rts = motion_from_essential(E)
 R,t = choose_solution(uv1, uv2, K1, K2, Rts)
 P1,P2 = camera_matrices(K1, K2, R, t)
 
-# Uncomment for task 4b
-# uv1 = np.loadtxt('../data/goodPoints.txt')
-# uv2 = epipolar_match(rgb2gray(I1), rgb2gray(I2), F, uv1)
+uv1 = np.loadtxt('../data/goodPoints.txt')
+uv2 = epipolar_match(rgb2gray(I1), rgb2gray(I2), F, uv1)
 
 n = len(uv1)
 X = np.array([linear_triangulation(uv1[i], uv2[i], P1, P2) \

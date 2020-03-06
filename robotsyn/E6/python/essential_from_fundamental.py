@@ -14,6 +14,4 @@ def essential_from_fundamental(F, K1, K2):
         E:  Essential Matrix
     """
 
-    # todo: Compute the correct E
-    E = np.zeros((3,3))
-    return E
+    return K2.T @ F @ K1

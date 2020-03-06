@@ -17,6 +17,16 @@ def linear_triangulation(uv1, uv2, P1, P2):
     See HZ Ch. 12.2: Linear triangulation methods (p312)
     """
 
-    # todo: Compute X
-    X = np.zeros(3)
-    return X
+    # set up set of linear equations 
+    A = np.array([
+        uv1[0]*P1[2,:] - P1[0,:],
+        uv1[1]*P1[2,:] - P1[1,:],
+        uv2[0]*P2[2,:] - P2[0,:],
+        uv2[1]*P2[2,:] - P2[1,:]
+    ])
+
+    # homogenous method (DLT)
+    U, s, Vh = np.linalg.svd(A)
+    X = Vh[-1]
+
+    return X[0:3] / X[-1]

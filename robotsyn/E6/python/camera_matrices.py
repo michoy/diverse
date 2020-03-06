@@ -11,7 +11,7 @@ def camera_matrices(K1, K2, R, t):
         P1,P2: The projection matrices with shape 3x4.
     """
 
-    # todo: compute the correct P1 and P2
-    P1 = np.zeros((3,4))
-    P2 = np.zeros((3,4))
+    P1 = K1 @ np.column_stack((np.eye(3), np.zeros(3)))
+    P2 = K2 @ np.column_stack((R, t))
+
     return P1, P2

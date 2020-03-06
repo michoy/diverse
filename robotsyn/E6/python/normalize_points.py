@@ -36,5 +36,6 @@ def normalize_points(pts):
 
     # calculate normalized points from homogenous points
     pts_n = T @ np.column_stack((pts, np.ones(len(pts)))).T
+    pts_fin = pts_n[0:3, :].T
 
-    return pts_n, T
+    return pts_fin, T
