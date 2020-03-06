@@ -1,7 +1,8 @@
 import numpy as np
 
 def normalize_points(pts):
-    """ Computes a normalizing transformation of the points such that
+    """ 
+    Computes a normalizing transformation of the points such that
     the points are centered at the origin and their mean distance from
     the origin is equal to sqrt(2).
 
@@ -21,7 +22,19 @@ def normalize_points(pts):
                     |1 |       |1|
     """
 
-    # todo: Compute pts_n and T
-    pts_n = pts
-    T = np.eye(3)
+    # calculate normalization constants
+    centroid = np.mean(pts, axis=0, dtype='float64')
+    sigma = np.mean([np.linalg.norm(x - centroid) for x in pts])
+
+    # Create transformation
+    a = (np.sqrt(2) / sigma)
+    T = np.array([
+        [a, 0, -a*centroid[0]],
+        [0, a, -a*centroid[1]],
+        [0, 0, 1]
+    ])
+
+    # calculate normalized points from homogenous points
+    pts_n = T @ np.column_stack((pts, np.ones(len(pts)))).T
+
     return pts_n, T

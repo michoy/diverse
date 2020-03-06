@@ -18,7 +18,7 @@ def eight_point(uv1, uv2):
     See HZ Ch. 11.2: The normalized 8-point algorithm (p.281).
     """
 
-    # todo: Compute F
+    # TODO: Compute F
     F = np.zeros((3,3))
     return F
 
@@ -28,5 +28,5 @@ def closest_fundamental_matrix(F):
     Frobenius norm. See HZ, Ch. 11.1.1 (p.280).
     """
 
-    # todo: Compute the correct F
+    # TODO: Compute the correct F
     return F
