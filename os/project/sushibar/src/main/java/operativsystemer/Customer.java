@@ -1,36 +1,40 @@
 package operativsystemer;
 
+import java.util.UUID;
+
 /**
- * This class implements a customer, which is used for holding data
- * and update the statistics
+ * This class implements a customer, which is used for holding data and update
+ * the statistics
  */
 public class Customer {
 
+    private UUID id;
+
     /**
-     *  Creates a new Customer.  Each customer should be given a
-     *  unique ID
+     * Creates a new Customer. Each customer should be given a unique ID
      */
     public Customer() {
-        // TODO: Implement required functionality.
+        id = UUID.randomUUID();
     }
 
-
     /**
-     * Here you should implement the functionality for ordering food
-     * as described in the assignment.
+     * Here you should implement the functionality for ordering food as described in
+     * the assignment.
      */
     public void order() {
-        // TODO: Implement required functionality.
+        try {
+            Thread.sleep(SushiBar.customerWait);    // customer eats
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
      *
-     * @return Should return the customerID
+     * @return customerID as UUID
      */
-    public int getCustomerID() {
-        // TODO: Implement required functionality.
-        return 0;
+    public UUID getCustomerID() {
+        return id;
     }
-
     // Add more methods as you see fit.
 }

@@ -6,13 +6,15 @@ package operativsystemer;
  */
 public class Waitress implements Runnable {
 
+    private WaitingArea waitingArea;
+
     /**
      * Creates a new waitress. Make sure to save the parameter in the class
      *
      * @param waitingArea The waiting area for customers
      */
     Waitress(WaitingArea waitingArea) {
-        // TODO: Implement required functionality.
+        this.waitingArea = waitingArea;
     }
 
     /**
@@ -21,7 +23,17 @@ public class Waitress implements Runnable {
      */
     @Override
     public void run() {
-        // TODO: Implement required functionality.
+        
+        try {
+            while (SushiBar.isOpen && !waitingArea.isEmpty()) {
+                Customer customer = waitingArea.next();
+                Thread.sleep(SushiBar.waitressWait);
+                customer.order();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 

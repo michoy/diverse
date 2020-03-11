@@ -1,5 +1,7 @@
 package operativsystemer;
 
+import java.util.Random;
+
 /**
  * This class implements the Door component of the sushi bar
  * assignment The Door corresponds to the Producer in the
@@ -7,12 +9,16 @@ package operativsystemer;
  */
 public class Door implements Runnable {
 
+    private WaitingArea waitingArea;
+    private Random random;
+
     /**
      * Creates a new Door. Make sure to save the
      * @param waitingArea   The customer queue waiting for a seat
      */
     public Door(WaitingArea waitingArea) {
-        // TODO: Implement required functionality.
+        this.waitingArea = waitingArea;
+        this.random = new Random();
     }
 
     /**
@@ -21,7 +27,18 @@ public class Door implements Runnable {
      */
     @Override
     public void run() {
-        // TODO: Implement required functionality.
+
+        try {
+            while (SushiBar.isOpen) {
+                waitingArea.enter(new Customer());
+                Thread.sleep(random.nextInt(SushiBar.doorWait));
+            }
+            
+            SushiBar.write("Door is closed");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     // Add more methods as you see fit

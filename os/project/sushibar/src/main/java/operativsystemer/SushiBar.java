@@ -12,9 +12,9 @@ public class SushiBar {
     private static int waitressCount = 7;
     private static int duration = 5;
     public static int maxOrder = 15;
-    public static int waitressWait = 60; // Used to calculate the time the waitress spends before taking the order
-    public static int customerWait = 2500; // Used to calculate the time the customer spends eating
-    public static int doorWait = 120; // Used to calculate the interval at which the door tries to create a customer
+    public static int waitressWait = 60;    // Used to calculate the time the waitress spends before taking the order
+    public static int customerWait = 2500;  // Used to calculate the time the customer spends eating
+    public static int doorWait = 120;       // Used to calculate the interval at which the door tries to create a customer
     public static boolean isOpen = true;
 
     // Creating log file.
@@ -36,6 +36,7 @@ public class SushiBar {
         takeawayOrders = new SynchronizedInteger(0);
 
         // TODO: initialize the bar and start the different threads.
+        
     }
 
     // Writes actions in the log file and console.
@@ -47,7 +48,6 @@ public class SushiBar {
             bw.close();
             System.out.println(Clock.getTime() + ", " + str);
         } catch (IOException e) {
-            // TODO: Auto-generated catch block.
             e.printStackTrace();
         }
     }

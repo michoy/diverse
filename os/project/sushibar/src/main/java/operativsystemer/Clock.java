@@ -7,7 +7,7 @@ import java.util.TimerTask;
 
 
 public class Clock {
-    Timer timer;
+    private Timer timer;
 
     public Clock(int seconds) {
         // A new Thread will be created, and scheduled to unset
