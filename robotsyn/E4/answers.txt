@@ -1,0 +1,10 @@
+
+1d)
+The matrix JTJ becomes singular, which means it cannot be inverted (excluding the pseudo-inverse).
+This causes problems for the solver, which is probably dependant in inverting the matrix for its calculation.
+
+2a)
+Lambda decreases exponentially, theta stabilizes and it took 20 iterations. See images 2a_theta and 2a_lambda for results. 
+
+2b)
+No, because the added damping terms alon the diagonal prevent the matrix from becomming sigular. 
