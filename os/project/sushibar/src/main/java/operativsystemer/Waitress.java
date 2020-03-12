@@ -25,10 +25,16 @@ public class Waitress implements Runnable {
     public void run() {
         
         try {
-            while (SushiBar.isOpen && !waitingArea.isEmpty()) {
+            while (SushiBar.isOpen || !waitingArea.isEmpty()) {
                 Customer customer = waitingArea.next();
+
+                SushiBar.write(Thread.currentThread(), customer, "fetched");
                 Thread.sleep(SushiBar.waitressWait);
+
+                SushiBar.write(Thread.currentThread(), customer, "eating");
                 customer.order();
+
+                SushiBar.write(Thread.currentThread(), customer, "leaving");
             }
 
         } catch (Exception e) {

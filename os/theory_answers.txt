@@ -1,0 +1,13 @@
+a)
+wait: 
+Puts a thread into waiting state. Used when it needs access to a shared resource
+that is currently beeing used by another thread. 
+
+notify: 
+Wakes up a single thread that is wating on a synchronized code block. 
+This is usefull when multiple threads need synchronized access to a single resource, 
+and the order in which they gain access is not important (eg. read and write).
+
+notifyAll: 
+Wakes up all threads. This is usefull when multiple threads are waiting for a shared
+resource, which they do not need synchronized access to (eg. only read, not write)

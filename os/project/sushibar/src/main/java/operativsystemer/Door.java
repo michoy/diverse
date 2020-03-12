@@ -33,8 +33,6 @@ public class Door implements Runnable {
                 waitingArea.enter(new Customer());
                 Thread.sleep(random.nextInt(SushiBar.doorWait));
             }
-            
-            SushiBar.write("Door is closed");
 
         } catch (Exception e) {
             e.printStackTrace();

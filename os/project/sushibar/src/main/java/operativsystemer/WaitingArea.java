@@ -29,7 +29,8 @@ public class WaitingArea {
      * @param customer A customer created by Door, trying to enter the waiting area
      * @throws InterruptedException if interrupted while waiting
      */
-    public synchronized void enter(Customer customer) throws InterruptedException {
+    public void enter(Customer customer) throws InterruptedException {
+        SushiBar.write(Thread.currentThread(), customer, "waiting");
         buffer.put(customer);
     }
 
