@@ -32,6 +32,7 @@ public class WaitingArea {
     public void enter(Customer customer) throws InterruptedException {
         SushiBar.write(Thread.currentThread(), customer, "waiting");
         buffer.put(customer);
+        SushiBar.statistics.customerVisited();
     }
 
     /**

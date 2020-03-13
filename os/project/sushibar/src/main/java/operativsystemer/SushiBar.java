@@ -68,6 +68,7 @@ public class SushiBar {
             SushiBar.write("Total orders: " + String.valueOf(statistics.getTotalOrders()));
             SushiBar.write("Takeaway orders: " + String.valueOf(statistics.getTakeawayOrders()));
             SushiBar.write("Eaten orders: " + String.valueOf(statistics.getEatenOrders()));
+            SushiBar.write("Customers served: " + String.valueOf(statistics.getNumOfCustomers()));
             SushiBar.write("Time open: " + String.valueOf(duration) + " seconds");
             
         } catch (Exception e) {
