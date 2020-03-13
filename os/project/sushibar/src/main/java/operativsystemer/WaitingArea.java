@@ -39,7 +39,7 @@ public class WaitingArea {
      * @return The customer that is first in line.
      * @throws InterruptedException if interrupted while waiting
      */
-    public synchronized Customer next() throws InterruptedException {
+    public Customer next() throws InterruptedException {
         return buffer.take();
     }
 

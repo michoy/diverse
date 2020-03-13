@@ -11,3 +11,25 @@ and the order in which they gain access is not important (eg. read and write).
 notifyAll: 
 Wakes up all threads. This is usefull when multiple threads are waiting for a shared
 resource, which they do not need synchronized access to (eg. only read, not write)
+
+b)
+The the waiting area buffer, the id pool and the statistics object are shared resources. 
+
+The former two are implemented as ArrayBlockingQueue, which has concurrency handling 
+built in. It will block threads that try to take from an empty queue or insert into 
+a full one. By setting its "fairness" attribute to true, it grants access to threads 
+in a first come, first serve manner. This prevents starvation of threads, with the 
+cost of reducing throughput a bit. 
+
+For the statistics object, the data is stored as ordinary integers. Concurrency handling
+is done by implementing write operations through synchronized methods. Read operations 
+are done with ordinary methods, as they cause no risk of data races and are only used
+once at the end of simulation. 
+
+
+c)
+The statistics are presented by the main thread, which acts as a task manager in this 
+implementation. It ensures correct timing by first waiting for the doorThread to finish,
+such that it can write the "door closed" message, and then waiting for all waitress 
+threads to finsih their business. The waiting is implemented through the built in 
+join function. 
